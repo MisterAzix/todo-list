@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap");
+
+$background-color: #171717;
+$text-color: white;
+$primary-font: 'Montserrat';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $background-color;
+    color: $text-color;
+    font-family: $primary-font;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        text-align: center;
+        margin: 50px 0;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        border-width: 3px;
+        border: #ffffff solid;
+        border-radius: 16px;
+        height: 500px;
+        width: 500px;
+        padding: 50px;
+        box-shadow: 0 0 8px #ffffff;
+
+        .form-subcontainer {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 25px 0;
+
+            label {
+                margin: 5px 10px;
+                font-weight: 600;
+                font-size: 1rem;
+            }
+
+            input {
+                background: none;
+                border-width: 3px;
+                border: #ffffff solid;
+                border-radius: 16px;
+                height: 50px;
+                width: 400px;
+                color: $text-color;
+                outline: none;
+                padding: 0 20px;
+                box-shadow: 0 0 8px #ffffff;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+        }
+        
+        .form-submit-container {
+
+            input {
+                background: #343434;
+                border-width: 3px;
+                border: #ffffff solid;
+                border-radius: 16px;
+                height: 50px;
+                width: 200px;
+                color: $text-color;
+                margin: 50px 0;
+                box-shadow: 0 0 8px #ffffff;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+        }
+    }
+}

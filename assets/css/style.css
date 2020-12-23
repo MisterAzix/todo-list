@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #171717;
+  color: white;
+  font-family: "Montserrat";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body h1 {
+  text-align: center;
+  margin: 50px 0;
+}
+
+body form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-width: 3px;
+  border: #ffffff solid;
+  border-radius: 16px;
+  height: 500px;
+  width: 500px;
+  padding: 50px;
+  -webkit-box-shadow: 0 0 8px #ffffff;
+          box-shadow: 0 0 8px #ffffff;
+}
+
+body form .form-subcontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin: 25px 0;
+}
+
+body form .form-subcontainer label {
+  margin: 5px 10px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+body form .form-subcontainer input {
+  background: none;
+  border-width: 3px;
+  border: #ffffff solid;
+  border-radius: 16px;
+  height: 50px;
+  width: 400px;
+  color: white;
+  outline: none;
+  padding: 0 20px;
+  -webkit-box-shadow: 0 0 8px #ffffff;
+          box-shadow: 0 0 8px #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+body form .form-submit-container input {
+  background: #343434;
+  border-width: 3px;
+  border: #ffffff solid;
+  border-radius: 16px;
+  height: 50px;
+  width: 200px;
+  color: white;
+  margin: 50px 0;
+  -webkit-box-shadow: 0 0 8px #ffffff;
+          box-shadow: 0 0 8px #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+}
+/*# sourceMappingURL=style.css.map */
