@@ -1,6 +1,6 @@
 <div class="todo">
     <div class="todo-title">
-        <?= $todoTitle ?: 'Eat some bread' ?>
+        <?= htmlentities($todoTitle ?: 'Eat some bread') ?>
     </div>
     <div class="todo-status">
         <i>
