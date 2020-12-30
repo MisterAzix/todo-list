@@ -13,7 +13,6 @@ class Todo
         $json = $this->readTodo();
         
         foreach ($json as $data) {
-            //var_dump($data);
             $todoTitle = $data['title'];
             $todoStatus = $data['status'];
             require './functions/todo.php';
