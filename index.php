@@ -5,6 +5,7 @@ require_once './functions/auth.php';
 if (!is_connected()) {
     header('Location: ./login/index.php');
 }
+
 $todo = new Todo();
 ?>
 
@@ -22,11 +23,7 @@ $todo = new Todo();
     </form>
 
     <div class="todo-list-container">
-        <?php
-        for ($i = 0; $i <= 5; $i++) :
-            echo $todo->displayTodo('Oui', false);
-        endfor;
-        ?>
+        <?php $todo->displayTodo() ?>
     </div>
 </div>
 
