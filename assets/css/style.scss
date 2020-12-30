@@ -2,12 +2,21 @@
 
 $background-color: #171717;
 $text-color: white;
-$primary-font: 'Montserrat';
+$primary-font: "Montserrat";
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    /*&::-webkit-scrollbar {
+        width: 5px;
+        background-color: $background-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: white;
+    }*/
 }
 
 body {
@@ -24,7 +33,8 @@ body {
         margin: 50px 0;
     }
 
-    form {
+    /*========== LOGIN ==========*/
+    .form-container {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -64,9 +74,8 @@ body {
                 font-weight: 600;
             }
         }
-        
-        .form-submit-container {
 
+        .form-submit-container {
             input {
                 background: #343434;
                 border-width: 3px;
@@ -79,6 +88,110 @@ body {
                 box-shadow: 0 0 8px #ffffff;
                 font-size: 1rem;
                 font-weight: 600;
+            }
+        }
+    }
+
+    /*========== TODO ==========*/
+    .todo-container {
+        .todo-form-container {
+            margin: 25px 0;
+
+            .todo-form-subcontainer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                input {
+                    border-width: 3px;
+                    border: #ffffff solid;
+                    border-radius: 16px;
+                    height: 50px;
+                    width: 400px;
+                    outline: none;
+                    box-shadow: 0 0 8px #ffffff;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    padding: 0 20px;
+                }
+
+                button {
+                    background: $text-color;
+                    color: $background-color;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    height: 50px;
+                    width: 100px;
+                    border-radius: 8px;
+                    border: none;
+                    outline: none;
+                    transition: 0.3s ease;
+                    cursor: pointer;
+                    margin-left: 25px;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+
+        .todo-list-container {
+            .todo {
+                display: flex;
+                align-items: center;
+                background: none;
+                border-width: 3px;
+                border: #ffffff solid;
+                border-radius: 16px;
+                height: 50px;
+                width: 700px;
+                color: $text-color;
+                outline: none;
+                box-shadow: 0 0 8px #ffffff;
+                margin: 30px 20px;
+
+                .todo-title {
+                    width: 500px;
+                    padding: 0 20px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                }
+
+                .todo-status {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100px;
+                    height: 100%;
+                    border-width: 3px;
+                    border-right: white solid;
+                    border-left: white solid;
+                    box-shadow: 0 0 8px #ffffff;
+
+                    i {
+                        position: relative;
+                        border-radius: 8px;
+                        border-width: 3px;
+                        border: #ffffff solid;
+                        height: 28px;
+                        width: 28px;
+
+                        img {
+                            position: absolute;
+                            width: 32px;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                        }
+                    }
+                }
+
+                .todo-delete {
+                    display: flex;
+                    justify-content: center;
+                    width: 100px;
+                }
             }
         }
     }

@@ -4,6 +4,14 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  /*&::-webkit-scrollbar {
+        width: 5px;
+        background-color: $background-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: white;
+    }*/
 }
 
 body {
@@ -23,6 +31,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  /*========== LOGIN ==========*/
+  /*========== TODO ==========*/
 }
 
 body h1 {
@@ -30,7 +40,7 @@ body h1 {
   margin: 50px 0;
 }
 
-body form {
+body .form-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,7 +64,7 @@ body form {
           box-shadow: 0 0 8px #ffffff;
 }
 
-body form .form-subcontainer {
+body .form-container .form-subcontainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,13 +78,13 @@ body form .form-subcontainer {
   margin: 25px 0;
 }
 
-body form .form-subcontainer label {
+body .form-container .form-subcontainer label {
   margin: 5px 10px;
   font-weight: 600;
   font-size: 1rem;
 }
 
-body form .form-subcontainer input {
+body .form-container .form-subcontainer input {
   background: none;
   border-width: 3px;
   border: #ffffff solid;
@@ -90,7 +100,7 @@ body form .form-subcontainer input {
   font-weight: 600;
 }
 
-body form .form-submit-container input {
+body .form-container .form-submit-container input {
   background: #343434;
   border-width: 3px;
   border: #ffffff solid;
@@ -103,5 +113,130 @@ body form .form-submit-container input {
           box-shadow: 0 0 8px #ffffff;
   font-size: 1rem;
   font-weight: 600;
+}
+
+body .todo-container .todo-form-container {
+  margin: 25px 0;
+}
+
+body .todo-container .todo-form-container .todo-form-subcontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .todo-container .todo-form-container .todo-form-subcontainer input {
+  border-width: 3px;
+  border: #ffffff solid;
+  border-radius: 16px;
+  height: 50px;
+  width: 400px;
+  outline: none;
+  -webkit-box-shadow: 0 0 8px #ffffff;
+          box-shadow: 0 0 8px #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0 20px;
+}
+
+body .todo-container .todo-form-container .todo-form-subcontainer button {
+  background: white;
+  color: #171717;
+  font-size: 1rem;
+  font-weight: 600;
+  height: 50px;
+  width: 100px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  cursor: pointer;
+  margin-left: 25px;
+}
+
+body .todo-container .todo-form-container .todo-form-subcontainer button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+body .todo-container .todo-list-container .todo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: none;
+  border-width: 3px;
+  border: #ffffff solid;
+  border-radius: 16px;
+  height: 50px;
+  width: 700px;
+  color: white;
+  outline: none;
+  -webkit-box-shadow: 0 0 8px #ffffff;
+          box-shadow: 0 0 8px #ffffff;
+  margin: 30px 20px;
+}
+
+body .todo-container .todo-list-container .todo .todo-title {
+  width: 500px;
+  padding: 0 20px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+body .todo-container .todo-list-container .todo .todo-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100px;
+  height: 100%;
+  border-width: 3px;
+  border-right: white solid;
+  border-left: white solid;
+  -webkit-box-shadow: 0 0 8px #ffffff;
+          box-shadow: 0 0 8px #ffffff;
+}
+
+body .todo-container .todo-list-container .todo .todo-status i {
+  position: relative;
+  border-radius: 8px;
+  border-width: 3px;
+  border: #ffffff solid;
+  height: 28px;
+  width: 28px;
+}
+
+body .todo-container .todo-list-container .todo .todo-status i img {
+  position: absolute;
+  width: 32px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+body .todo-container .todo-list-container .todo .todo-delete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100px;
 }
 /*# sourceMappingURL=style.css.map */
