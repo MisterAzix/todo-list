@@ -151,6 +151,10 @@ body {
                 box-shadow: 0 0 8px #ffffff;
                 margin: 30px 20px;
 
+                &.todo-checked {
+                    opacity: 0.5;
+                }
+
                 .todo-title {
                     width: 500px;
                     padding: 0 20px;
@@ -169,13 +173,22 @@ body {
                     border-left: white solid;
                     box-shadow: 0 0 8px #ffffff;
 
-                    i {
+                    button {
+                        background: none;
+                        outline: none;
                         position: relative;
                         border-radius: 8px;
                         border-width: 3px;
                         border: #ffffff solid;
+                        box-shadow: 0 0 8px #ffffff;
                         height: 28px;
                         width: 28px;
+                        cursor: pointer;
+                        /*transition: 0.3s ease;*/
+
+                        /*&:hover {
+                            transform: scale(1.1);
+                        }*/
 
                         img {
                             position: absolute;

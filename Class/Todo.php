@@ -11,8 +11,8 @@ class Todo
     public function displayTodo()
     {
         $json = $this->readTodo();
-        
-        foreach ($json as $data) {
+
+        foreach ($json as $key => $data) {
             $todoTitle = $data['title'];
             $todoStatus = $data['status'];
             require './functions/todo.php';
@@ -23,12 +23,21 @@ class Todo
     {
         $json = $this->readTodo();
         $jsonLength = count($json);
-        $json[$jsonLength+1] = array("title" => $title, "status" => $status);
+        $json[$jsonLength + 1] = array("title" => $title, "status" => $status);
         file_put_contents($this->file, json_encode($json));
     }
 
     public function readTodo(int $todoNumber = 0, int $limit = 0)
     {
         return json_decode(file_get_contents($this->file), true);
+    }
+
+    public function switchTodoStatus(int $todoID): bool
+    {
+        $json = $this->readTodo();
+        $newStatus = $json[$todoID]["status"] ? false : true;
+        $json[$todoID] = array("title" => $json[$todoID]['title'], "status" => $newStatus);
+        file_put_contents($this->file, json_encode($json));
+        return $newStatus;
     }
 }

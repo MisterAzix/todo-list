@@ -186,6 +186,10 @@ body .todo-container .todo-list-container .todo {
   margin: 30px 20px;
 }
 
+body .todo-container .todo-list-container .todo.todo-checked {
+  opacity: 0.5;
+}
+
 body .todo-container .todo-list-container .todo .todo-title {
   width: 500px;
   padding: 0 20px;
@@ -212,16 +216,25 @@ body .todo-container .todo-list-container .todo .todo-status {
           box-shadow: 0 0 8px #ffffff;
 }
 
-body .todo-container .todo-list-container .todo .todo-status i {
+body .todo-container .todo-list-container .todo .todo-status button {
+  background: none;
+  outline: none;
   position: relative;
   border-radius: 8px;
   border-width: 3px;
   border: #ffffff solid;
+  -webkit-box-shadow: 0 0 8px #ffffff;
+          box-shadow: 0 0 8px #ffffff;
   height: 28px;
   width: 28px;
+  cursor: pointer;
+  /*transition: 0.3s ease;*/
+  /*&:hover {
+                            transform: scale(1.1);
+                        }*/
 }
 
-body .todo-container .todo-list-container .todo .todo-status i img {
+body .todo-container .todo-list-container .todo .todo-status button img {
   position: absolute;
   width: 32px;
   top: 50%;
