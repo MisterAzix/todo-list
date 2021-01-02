@@ -3,7 +3,7 @@
         <?= htmlentities($todoTitle ?: 'Eat some bread') ?>
     </div>
     <form action="./functions/switchTodoStatus.php" method="POST" class="todo-status">
-        <button class="checkbox-button" type="submit" name="<?= 'todo-' . $key ?>">
+        <button class="checkbox-button" type="submit" name="<?= 'todo-' . $todoID ?>">
             <img src="../assets/img/icon_check_mark.svg" alt="" class="<?= $todoStatus ? 'hidden' : '' ?>">
         </button>
     </form>
