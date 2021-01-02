@@ -243,6 +243,10 @@ body .todo-container .todo-list-container .todo .todo-status button img {
           transform: translate(-50%, -50%);
 }
 
+body .todo-container .todo-list-container .todo .todo-status button img.hidden {
+  display: none;
+}
+
 body .todo-container .todo-list-container .todo .todo-delete {
   display: -webkit-box;
   display: -ms-flexbox;
