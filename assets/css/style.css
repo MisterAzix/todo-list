@@ -256,4 +256,18 @@ body .todo-container .todo-list-container .todo .todo-delete {
           justify-content: center;
   width: 100px;
 }
+
+body .todo-container .todo-list-container .todo .todo-delete button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+body .todo-container .todo-list-container .todo .todo-delete button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
 /*# sourceMappingURL=style.css.map */

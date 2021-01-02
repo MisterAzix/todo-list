@@ -13,8 +13,7 @@ class Todo
         $json = $this->readTodo();
         krsort($json);
 
-        foreach ($json as $data) {
-            $todoID = $data['id'];
+        foreach ($json as $key => $data) {
             $todoTitle = $data['title'];
             $todoStatus = $data['status'];
             require './functions/todo.php';
@@ -34,8 +33,8 @@ class Todo
     {
         $json = $this->readTodo();
         if (!$this->todoExist($title, $json)) {
-            $todoID = $this->getLastTodo()['id'] + 1;
-            $json[$todoID] = array("id" => $todoID, "title" => $title, "status" => $status);
+            $todoID = $this->getLastTodoID() + 1;
+            $json[$todoID] = array("title" => $title, "status" => $status);
             file_put_contents($this->file, json_encode($json));
             return true;
         } else {
@@ -43,16 +42,24 @@ class Todo
         }
     }
 
+    public function deleteTodo(int $todoID)
+    {
+        $json = $this->readTodo();
+        unset($json[$todoID]);
+        file_put_contents($this->file, json_encode($json));
+    }
+
     private function readTodo(int $todoNumber = 0, int $limit = 0)
     {
         return json_decode(file_get_contents($this->file), true);
     }
 
-    private function getLastTodo($json = null)
+    private function getLastTodoID($json = null): int
     {
         $json = $json ?: $this->readTodo();
         $jsonLength = count($json);
-        return $json[$jsonLength-1];
+        $lastTodoID = array_keys($json)[$jsonLength - 1];
+        return $lastTodoID;
     }
 
     private function todoExist(string $title, $json = null): bool
