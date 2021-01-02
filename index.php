@@ -8,13 +8,16 @@ if (!is_connected()) {
 
 $todo = new Todo();
 $error = null;
-/*if (isset($_POST['todo'])) {
+if (isset($_POST['todo'])) {
     if(strlen($_POST['todo']) > 10) {
-        $todo->writeTodo($_POST['todo']);
+        $succes = $todo->writeTodo($_POST['todo']);
+        if(!$succes) {
+            $error = 'Todo already exist!';
+        }
     }else {
         $error = 'Todo title length must be longer than 10 characters!';
     }
-}*/
+}
 ?>
 
 <?php require './elements/header.php'; ?>
