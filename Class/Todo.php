@@ -5,37 +5,41 @@ class Todo
 
     public function __construct()
     {
-        $this->file = dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . '_data' . DIRECTORY_SEPARATOR . 'todos.json';
+        $this->file = dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . '_data' . DIRECTORY_SEPARATOR . 'todos.db';
     }
 
     public function displayTodo()
     {
-        $json = $this->readTodo();
-        krsort($json);
+        $todos = $this->readTodo(1);
 
-        foreach ($json as $key => $data) {
-            $todoTitle = $data['title'];
-            $todoStatus = $data['status'];
+        foreach ($todos as $todo) {
+            $key = $todo->id;
+            $todoTitle = $todo->title;
+            $todoStatus = $todo->status;
             require './functions/todo.php';
         }
     }
 
-    public function switchTodoStatus(int $todoID): bool
+    public function switchTodoStatus(int $todoID)
     {
-        $json = $this->readTodo();
-        $newStatus = $json[$todoID]["status"] ? false : true;
-        $json[$todoID] = array("title" => $json[$todoID]['title'], "status" => $newStatus);
-        file_put_contents($this->file, json_encode($json));
-        return $newStatus;
+        $pdo = new PDO('sqlite:' . $this->file);
+        $query = $pdo->prepare("UPDATE todos SET status=(CASE WHEN status=0 THEN 1 WHEN status=1 THEN 0 END) WHERE id=:id");
+        $query->execute([
+            'id' => $todoID
+        ]);
     }
 
-    public function writeTodo(string $title, bool $status = false): bool
+    public function writeTodo(int $userID, string $title): bool
     {
-        $json = $this->readTodo();
-        if (!$this->todoExist($title, $json)) {
-            $todoID = $this->getLastTodoID() + 1;
-            $json[$todoID] = array("title" => $title, "status" => $status);
-            file_put_contents($this->file, json_encode($json));
+        print_r($this->todoExist($userID, $title));
+        if (!$this->todoExist($userID, $title)) {
+            $pdo = new PDO('sqlite:' . $this->file);
+            $query = $pdo->prepare("INSERT INTO todos (user_id, title, created_at) VALUES (:user_id, :title, :created)");
+            $query->execute([
+                'user_id' => $userID,
+                'title' => $title,
+                'created' => time()
+            ]);
             return true;
         } else {
             return false;
@@ -44,32 +48,28 @@ class Todo
 
     public function deleteTodo(int $todoID)
     {
-        $json = $this->readTodo();
-        unset($json[$todoID]);
-        file_put_contents($this->file, json_encode($json));
+        $pdo = new PDO('sqlite:' . $this->file);
+        $query = $pdo->prepare("DELETE FROM todos WHERE id=:id");
+        $query->execute([
+            'id' => $todoID
+        ]);
     }
 
-    private function readTodo(int $todoNumber = 0, int $limit = 0)
+    private function readTodo(int $userID, int $limit = 0)
     {
-        return json_decode(file_get_contents($this->file), true);
+        $pdo = new PDO('sqlite:' . $this->file);
+        $query = ($limit > 0) ? $pdo->query("SELECT * FROM todos WHERE user_id=$userID LIMIT=$limit ORDER BY id DESC") : $pdo->query("SELECT * FROM todos WHERE user_id=$userID ORDER BY id DESC");
+        return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    private function getLastTodoID($json = null): int
+    private function todoExist(int $userID, string $title): bool
     {
-        $json = $json ?: $this->readTodo();
-        $jsonLength = count($json);
-        $lastTodoID = array_keys($json)[$jsonLength - 1];
-        return $lastTodoID;
-    }
-
-    private function todoExist(string $title, $json = null): bool
-    {
-        $json = $json ?: $this->readTodo();
-        foreach ($json as $data) {
-            if ($data['title'] == $title) {
-                return true;
-            }
-        }
-        return false;
+        $pdo = new PDO('sqlite:' . $this->file);
+        $query = $pdo->prepare("SELECT * FROM todos WHERE user_id=:user_id AND title=:title");
+        $query->execute([
+            ':user_id' => $userID,
+            'title' => $title
+        ]);
+        return $query->fetchAll(PDO::FETCH_OBJ) ? true : false;
     }
 }

@@ -6,5 +6,5 @@ if (!isset($_POST['name'])) {
     require_once('../Class/Todo.php');
     $todo = new Todo();
     $key = substr($_POST['name'], 5);
-    $todoStatus = $todo->switchTodoStatus($key);
+    $todo->switchTodoStatus($key);
 }

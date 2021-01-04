@@ -19,7 +19,7 @@
         let $button = $form.find('button'); 
         $.post('../../functions/deleteTodo.php', { name: $button.attr('name') })
             .done((data, text, jqxhr) => {
-                $form.parent().remove();
+                $form.parent().fadeOut();
             })
             .fail(jqxhr => {
                 alert(jqxhr.responseText);

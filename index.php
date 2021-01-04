@@ -10,13 +10,14 @@ $todo = new Todo();
 $error = null;
 if (isset($_POST['todo'])) {
     if (strlen($_POST['todo']) > 10) {
-        $succes = $todo->writeTodo($_POST['todo']);
+        $succes = $todo->writeTodo(1, $_POST['todo']);
         if (!$succes) {
             $error = 'Todo already exist!';
         }
     } else {
         $error = 'Todo title length must be longer than 10 characters!';
     }
+    //header('Location: ./index.php');
 }
 ?>
 
