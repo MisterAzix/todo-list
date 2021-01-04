@@ -31,7 +31,6 @@ class Todo
 
     public function writeTodo(int $userID, string $title): bool
     {
-        print_r($this->todoExist($userID, $title));
         if (!$this->todoExist($userID, $title)) {
             $pdo = new PDO('sqlite:' . $this->file);
             $query = $pdo->prepare("INSERT INTO todos (user_id, title, created_at) VALUES (:user_id, :title, :created)");

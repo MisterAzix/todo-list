@@ -1,23 +1,22 @@
 <?php
 $title = 'Login';
 $error = null;
-$email = 'flizi@live.fr';
-$password = '$2y$12$kSNS4r0M86kzEzMvjFm3XOqkzUDijt3W7Ftd4jz8Hbafv2yUWQJHW';
+
+require_once '../Class/Auth.php';
+$auth = new Auth();
+
+if($auth->is_connected()) {
+    header('Location: ../index.php');
+}
 
 if(!empty($_POST['email']) && !empty($_POST['password'])) {
-    if($_POST['email'] === $email && password_verify($_POST['password'], $password)) {
-        session_start();
-        $_SESSION['logged'] = 1;
+    $login = $auth->login($_POST['email'], $_POST['password']);
+    if($login) {
         header('Location: ../index.php');
         exit();
     }else {
         $error = 'Error : Invalid password or email!';
     }
-}
-
-require_once '../functions/auth.php';
-if(is_connected()) {
-    header('Location: ../index.php');
 }
 
 require '../elements/header.php';

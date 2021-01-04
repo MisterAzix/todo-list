@@ -1,8 +1,9 @@
 <?php
 $title = 'Home';
 require_once './Class/Todo.php';
-require_once './functions/auth.php';
-if (!is_connected()) {
+require_once './Class/Auth.php';
+$auth = new Auth();
+if (!$auth->is_connected()) {
     header('Location: ./login/index.php');
 }
 
