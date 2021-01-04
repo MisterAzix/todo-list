@@ -57,7 +57,7 @@ body .form-container {
   border-width: 3px;
   border: #ffffff solid;
   border-radius: 16px;
-  height: 500px;
+  height: 600px;
   width: 500px;
   padding: 50px;
   -webkit-box-shadow: 0 0 8px #ffffff;
@@ -100,7 +100,7 @@ body .form-container .form-subcontainer input {
   font-weight: 600;
 }
 
-body .form-container .form-submit-container input {
+body .form-container .form-submit-container button, body .form-container .form-submit-container a {
   background: #343434;
   border-width: 3px;
   border: #ffffff solid;
@@ -108,11 +108,25 @@ body .form-container .form-submit-container input {
   height: 50px;
   width: 200px;
   color: white;
-  margin: 50px 0;
+  margin: 15px 0;
   -webkit-box-shadow: 0 0 8px #ffffff;
           box-shadow: 0 0 8px #ffffff;
   font-size: 1rem;
   font-weight: 600;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+body .form-container .form-submit-container button:hover, body .form-container .form-submit-container a:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+body .form-container .form-submit-container a {
+  text-decoration: none;
+  padding: 10px 25px;
 }
 
 body .todo-container .todo-form-container {

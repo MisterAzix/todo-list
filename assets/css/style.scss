@@ -42,7 +42,7 @@ body {
         border-width: 3px;
         border: #ffffff solid;
         border-radius: 16px;
-        height: 500px;
+        height: 600px;
         width: 500px;
         padding: 50px;
         box-shadow: 0 0 8px #ffffff;
@@ -76,7 +76,7 @@ body {
         }
 
         .form-submit-container {
-            input {
+            button, a {
                 background: #343434;
                 border-width: 3px;
                 border: #ffffff solid;
@@ -84,10 +84,22 @@ body {
                 height: 50px;
                 width: 200px;
                 color: $text-color;
-                margin: 50px 0;
+                margin: 15px 0;
                 box-shadow: 0 0 8px #ffffff;
                 font-size: 1rem;
                 font-weight: 600;
+                outline: none;
+                cursor: pointer;
+                transition: 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+
+            a {
+                text-decoration: none;
+                padding: 10px 25px;
             }
         }
     }

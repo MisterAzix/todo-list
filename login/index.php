@@ -5,18 +5,19 @@ $error = null;
 require_once '../Class/Auth.php';
 $auth = new Auth();
 
-if($auth->is_connected()) {
+if ($auth->is_connected()) {
     header('Location: ../index.php');
 }
 
-if(!empty($_POST['email']) && !empty($_POST['password'])) {
+if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $login = $auth->login($_POST['email'], $_POST['password']);
-    if($login) {
+    if ($login) {
         header('Location: ../index.php');
         exit();
-    }else {
+    } else {
         $error = 'Error : Invalid password or email!';
     }
+    unset($_POST['email'], $_POST['password']);
 }
 
 require '../elements/header.php';
@@ -24,7 +25,7 @@ require '../elements/header.php';
 
 <h1>Welcome, please log in to access your ToDo list !</h1>
 
-<?php if($error): ?>
+<?php if ($error) : ?>
     <h2><?= $error ?></h2>
 <?php endif ?>
 
@@ -38,7 +39,10 @@ require '../elements/header.php';
         <input type="password" name="password" placeholder="••••••••••••••••••••" required>
     </div>
     <div class="form-submit-container">
-        <input type="submit" value="Log in">
+        <button type="submit">Log in</button>
+    </div>
+    <div class="form-submit-container">
+        <a href="../signup/index.php">Sign Up</a>
     </div>
 </form>
 

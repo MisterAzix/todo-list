@@ -2,15 +2,18 @@
 class Todo
 {
     private $file;
+    private $auth;
 
     public function __construct()
     {
+        require_once './Class/Auth.php';
         $this->file = dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . '_data' . DIRECTORY_SEPARATOR . 'todos.db';
+        $this->auth = new Auth();
     }
 
     public function displayTodo()
     {
-        $todos = $this->readTodo(1);
+        $todos = $this->readTodo();
 
         foreach ($todos as $todo) {
             $key = $todo->id;
@@ -29,9 +32,10 @@ class Todo
         ]);
     }
 
-    public function writeTodo(int $userID, string $title): bool
+    public function writeTodo(string $title): bool
     {
-        if (!$this->todoExist($userID, $title)) {
+        if (!$this->todoExist($title)) {
+            $userID = $this->auth->get_connected_id();
             $pdo = new PDO('sqlite:' . $this->file);
             $query = $pdo->prepare("INSERT INTO todos (user_id, title, created_at) VALUES (:user_id, :title, :created)");
             $query->execute([
@@ -54,15 +58,17 @@ class Todo
         ]);
     }
 
-    private function readTodo(int $userID, int $limit = 0)
+    private function readTodo(int $limit = 0)
     {
+        $userID = $this->auth->get_connected_id();
         $pdo = new PDO('sqlite:' . $this->file);
         $query = ($limit > 0) ? $pdo->query("SELECT * FROM todos WHERE user_id=$userID LIMIT=$limit ORDER BY id DESC") : $pdo->query("SELECT * FROM todos WHERE user_id=$userID ORDER BY id DESC");
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 
-    private function todoExist(int $userID, string $title): bool
+    private function todoExist(string $title): bool
     {
+        $userID = $this->auth->get_connected_id();
         $pdo = new PDO('sqlite:' . $this->file);
         $query = $pdo->prepare("SELECT * FROM todos WHERE user_id=:user_id AND title=:title");
         $query->execute([

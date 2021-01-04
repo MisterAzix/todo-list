@@ -1,6 +1,7 @@
 <?php
 
-class Auth {
+class Auth
+{
 
     private $file;
 
@@ -17,7 +18,32 @@ class Auth {
         return !empty($_SESSION['logged']);
     }
 
-    public function login(string $email, string $password): bool {
+    public function get_connected_id()
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        return $_SESSION['logged'];
+    }
+
+    public function signup(string $username, string $email, string $password): bool
+    {
+        $pdo = new PDO('sqlite:' . $this->file);
+        try {
+            $query = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
+            $query->execute([
+                'username' => $username,
+                'email' => $email,
+                'password' => password_hash($password, PASSWORD_DEFAULT, [ 'cost' => 12])
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
+    public function login(string $email, string $password): bool
+    {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
@@ -28,15 +54,16 @@ class Auth {
         ]);
         $result = $query->fetch(PDO::FETCH_OBJ);
         if ($result) {
-            if(password_verify($password, $result->password)) {
+            if (password_verify($password, $result->password)) {
                 $_SESSION['logged'] = $result->id;
                 return true;
-            }   
+            }
         }
         return false;
     }
 
-    public function logout() {
+    public function logout()
+    {
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }

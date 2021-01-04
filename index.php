@@ -11,7 +11,7 @@ $todo = new Todo();
 $error = null;
 if (isset($_POST['todo'])) {
     if (strlen($_POST['todo']) > 10) {
-        $succes = $todo->writeTodo(1, $_POST['todo']);
+        $succes = $todo->writeTodo($_POST['todo']);
         if (!$succes) {
             $error = 'Todo already exist!';
         }
