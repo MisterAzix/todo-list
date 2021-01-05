@@ -25,7 +25,6 @@ if (isset($_POST['todo'])) {
 <?php require './elements/header.php'; ?>
 
 <h1>Here your ToDo List!</h1>
-<h2><a href="./logout/index.php">Disconnect</a></h2>
 
 <?php if ($error) : ?>
     <h3><?= $error ?></h3>
