@@ -6,7 +6,7 @@ class Todo
 
     public function __construct()
     {
-        require_once './Class/Auth.php';
+        require_once 'Auth.php';
         $this->file = dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . '_data' . DIRECTORY_SEPARATOR . 'todos.db';
         $this->auth = new Auth();
     }
@@ -19,6 +19,7 @@ class Todo
             $key = $todo->id;
             $todoTitle = $todo->title;
             $todoStatus = $todo->status;
+            $time = $todo->created_at;
             require './functions/todo.php';
         }
     }

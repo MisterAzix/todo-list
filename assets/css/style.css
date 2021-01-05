@@ -277,6 +277,7 @@ body .todo-container .todo-form-container .todo-form-subcontainer button:hover {
 }
 
 body .todo-container .todo-list-container .todo {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -293,10 +294,18 @@ body .todo-container .todo-list-container .todo {
   outline: none;
   -webkit-box-shadow: 0 0 8px #ffffff;
           box-shadow: 0 0 8px #ffffff;
-  margin: 30px 20px;
+  margin: 50px 20px;
 }
 
 body .todo-container .todo-list-container .todo.todo-checked {
+  opacity: 0.5;
+}
+
+body .todo-container .todo-list-container .todo span {
+  position: absolute;
+  top: -25px;
+  left: 20px;
+  font-size: 0.8rem;
   opacity: 0.5;
 }
 

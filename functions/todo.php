@@ -1,4 +1,6 @@
+<?php date_default_timezone_set('Europe/Paris') ?>
 <div class="todo<?= $todoStatus ? ' todo-checked' : '' ?>">
+    <span><?= strftime('%B %d %G - %Hh%M', $time) ?></span>
     <div class="todo-title">
         <?= htmlentities($todoTitle ?: 'Eat some bread') ?>
     </div>

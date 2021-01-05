@@ -224,6 +224,7 @@ body {
 
         .todo-list-container {
             .todo {
+                position: relative;
                 display: flex;
                 align-items: center;
                 background: none;
@@ -235,9 +236,17 @@ body {
                 color: $text-color;
                 outline: none;
                 box-shadow: 0 0 8px #ffffff;
-                margin: 30px 20px;
+                margin: 50px 20px;
 
                 &.todo-checked {
+                    opacity: 0.5;
+                }
+
+                span {
+                    position: absolute;
+                    top: -25px;
+                    left: 20px;
+                    font-size: 0.8rem;
                     opacity: 0.5;
                 }
 
