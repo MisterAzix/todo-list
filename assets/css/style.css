@@ -34,6 +34,7 @@ body {
   /*========== LOGIN ==========*/
   /*========== SETTINGS ==========*/
   /*========== PROFILE DROPDOWN MENU ==========*/
+  /*========== SHAPE ==========*/
   /*========== TODO ==========*/
 }
 
@@ -206,6 +207,22 @@ body .profile-container .profile-settings-container img {
 body .profile-container .profile-settings-container img:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+body .shape {
+  position: fixed;
+  -webkit-filter: drop-shadow(0 0 8px #ffffff);
+          filter: drop-shadow(0 0 8px #ffffff);
+}
+
+body .shape.shape-bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+body .shape.shape-top-left {
+  top: 0;
+  left: 0;
 }
 
 body .todo-container .todo-form-container {

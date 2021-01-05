@@ -28,7 +28,6 @@
 
     $('.profile-picture').on('click', function (e) {
         console.log('oui');
-        let $picture = $(this);
         let $menu = $('.profile-settings-container');
         $menu.animate({
             height: "toggle",
