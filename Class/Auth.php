@@ -2,8 +2,7 @@
 
 class Auth
 {
-
-    private $file;
+    public $file;
 
     public function __construct()
     {

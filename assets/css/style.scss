@@ -105,7 +105,26 @@ body {
         }
     }
 
-    /*========== PROFILE ==========*/
+    /*========== SETTINGS ==========*/
+    .settings-container {
+        .profile-picture {
+            height: 256px;
+            width: 256px;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 8px #ffffff;
+            margin: 32px;
+        }
+
+        .settings-subcontainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+
+    /*========== PROFILE DROPDOWN MENU ==========*/
     .profile-container {
         position: fixed;
         top: 32px;
