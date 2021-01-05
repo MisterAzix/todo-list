@@ -12,3 +12,5 @@
 </head>
 
 <body>
+<img class="shape shape-bottom-right" src="../assets/img/shape_bottom_right.svg" alt="">
+<img class="shape shape-top-left" src="../assets/img/shape_top_left.svg" alt="">

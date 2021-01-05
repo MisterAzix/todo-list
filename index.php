@@ -30,9 +30,6 @@ if (isset($_POST['todo'])) {
     <h3><?= $error ?></h3>
 <?php endif ?>
 
-<img class="shape shape-bottom-right" src="./assets/img/shape_bottom_right.svg" alt="">
-<img class="shape shape-top-left" src="./assets/img/shape_top_left.svg" alt="">
-
 <div class="profile-container">
     <img class="profile-picture" src="./assets/img/profile_picture.jpg" alt="Profile Picture">
     <div class="profile-settings-container" style="display: none;">
