@@ -31,6 +31,14 @@ if (isset($_POST['todo'])) {
     <h3><?= $error ?></h3>
 <?php endif ?>
 
+<div class="profile-container">
+    <img class="profile-picture" src="./assets/img/profile_picture.jpg" alt="Profile Picture">
+    <div class="profile-settings-container" style="display: none;"> <!--  -->
+        <a href="./setting/index.php"><img src="./assets/img/icon_settings.svg" alt="Settings Button"></a>
+        <a href="./logout/index.php"><img src="./assets/img/icon_logout.svg" alt="Logout Button"></a>
+    </div>
+</div>
+
 <div class="todo-container">
     <form action="" method="POST" class="todo-form-container">
         <div class="todo-form-subcontainer">

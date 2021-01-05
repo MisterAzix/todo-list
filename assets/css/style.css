@@ -32,6 +32,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   /*========== LOGIN ==========*/
+  /*========== PROFILE ==========*/
   /*========== TODO ==========*/
 }
 
@@ -100,7 +101,8 @@ body .form-container .form-subcontainer input {
   font-weight: 600;
 }
 
-body .form-container .form-submit-container button, body .form-container .form-submit-container a {
+body .form-container .form-submit-container button,
+body .form-container .form-submit-container a {
   background: #343434;
   border-width: 3px;
   border: #ffffff solid;
@@ -119,7 +121,8 @@ body .form-container .form-submit-container button, body .form-container .form-s
   transition: 0.3s ease;
 }
 
-body .form-container .form-submit-container button:hover, body .form-container .form-submit-container a:hover {
+body .form-container .form-submit-container button:hover,
+body .form-container .form-submit-container a:hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
 }
@@ -127,6 +130,55 @@ body .form-container .form-submit-container button:hover, body .form-container .
 body .form-container .form-submit-container a {
   text-decoration: none;
   padding: 10px 25px;
+}
+
+body .profile-container {
+  position: fixed;
+  top: 32px;
+  right: 64px;
+}
+
+body .profile-container .profile-picture {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  -webkit-box-shadow: 0 0 8px #ffffff;
+          box-shadow: 0 0 8px #ffffff;
+  cursor: pointer;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+body .profile-container .profile-picture:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+body .profile-container .profile-settings-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .profile-container .profile-settings-container img {
+  height: 32px;
+  width: 32px;
+  margin-top: 24px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+body .profile-container .profile-settings-container img:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 body .todo-container .todo-form-container {
