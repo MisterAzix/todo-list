@@ -107,13 +107,16 @@ body {
 
     /*========== SETTINGS ==========*/
     .settings-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         .profile-picture {
             height: 256px;
             width: 256px;
             border-radius: 50%;
             border: 3px solid white;
             box-shadow: 0 0 8px #ffffff;
-            margin: 32px;
+            margin: 32px auto;
         }
 
         .settings-subcontainer {
@@ -121,6 +124,76 @@ body {
             flex-direction: column;
             justify-content: space-between;
             align-items: center;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin: 32px 0;
+
+                label {
+                    font-weight: bold;
+                    font-size: 1.5rem;
+                }
+
+                .inputfile {
+                    width: 0.1px;
+                    height: 0.1px;
+                    opacity: 0;
+                    overflow: hidden;
+                    position: absolute;
+                    z-index: -1;
+                }
+
+                .inputfile + label {
+                    font-size: 1.1rem;
+                    font-weight: 700;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    display: inline-block;
+                    padding: 10px 20px;
+                    color: white;
+                    border-radius: 16px;
+                    border: 2px solid currentColor;
+                    box-shadow: 0 0 8px #ffffff;
+                    transition: 0.3s ease;
+                    margin: 25px 0;
+
+                    &:focus + label,
+                    &.has-focus + label,
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+
+                    svg {
+                        width: 1em;
+                        height: 1em;
+                        vertical-align: middle;
+                        fill: currentColor;
+                        margin-top: -0.25em;
+                        margin-right: 0.25em;
+                    }
+                }
+
+                button {
+                    background: $text-color;
+                    color: $background-color;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    border: none;
+                    outline: none;
+                    transition: 0.3s ease;
+                    cursor: pointer;
+                    padding: 10px 25px;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
+                }
+            }
         }
     }
 

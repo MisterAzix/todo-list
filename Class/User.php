@@ -19,4 +19,20 @@ class User
         $query = $pdo->query("SELECT * FROM users WHERE id=$userID");
         return $query->fetch(PDO::FETCH_OBJ);
     }
+
+    public function savePicturePath($picturePath): bool
+    {
+        $userID = $this->auth->get_connected_id();
+        try {
+            $pdo = new PDO('sqlite:' . $this->file);
+            $query = $pdo->prepare("UPDATE users SET profile_path=:path WHERE id=:id");
+            $query->execute([
+                'path' => $picturePath,
+                'id' => $userID
+            ]);
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
 }

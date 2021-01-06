@@ -134,6 +134,19 @@ body .form-container .form-submit-container a {
   padding: 10px 25px;
 }
 
+body .settings-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 body .settings-container .profile-picture {
   height: 256px;
   width: 256px;
@@ -141,7 +154,7 @@ body .settings-container .profile-picture {
   border: 3px solid white;
   -webkit-box-shadow: 0 0 8px #ffffff;
           box-shadow: 0 0 8px #ffffff;
-  margin: 32px;
+  margin: 32px auto;
 }
 
 body .settings-container .settings-subcontainer {
@@ -158,6 +171,89 @@ body .settings-container .settings-subcontainer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+body .settings-container .settings-subcontainer form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 32px 0;
+}
+
+body .settings-container .settings-subcontainer form label {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+body .settings-container .settings-subcontainer form .inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+body .settings-container .settings-subcontainer form .inputfile + label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 16px;
+  border: 2px solid currentColor;
+  -webkit-box-shadow: 0 0 8px #ffffff;
+          box-shadow: 0 0 8px #ffffff;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  margin: 25px 0;
+}
+
+body .settings-container .settings-subcontainer form .inputfile + label:focus + label,
+body .settings-container .settings-subcontainer form .inputfile + label.has-focus + label, body .settings-container .settings-subcontainer form .inputfile + label:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+body .settings-container .settings-subcontainer form .inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  margin-right: 0.25em;
+}
+
+body .settings-container .settings-subcontainer form button {
+  background: white;
+  color: #171717;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  cursor: pointer;
+  padding: 10px 25px;
+}
+
+body .settings-container .settings-subcontainer form button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 body .profile-container {

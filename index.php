@@ -1,7 +1,16 @@
 <?php
 $title = 'Home';
+$profilePicture = '../assets/img/base_profile_picture.png';
 require_once './Class/Todo.php';
 require_once './Class/Auth.php';
+require_once './Class/User.php';
+
+$user = new User();
+$userData = $user->getUserData();
+if ($userData->profile_path && file_exists($userData->profile_path)) {
+    $profilePicture = $userData->profile_path;
+}
+
 $auth = new Auth();
 if (!$auth->is_connected()) {
     header('Location: ./login/index.php');
@@ -20,9 +29,9 @@ if (isset($_POST['todo'])) {
     }
     //header('Location: ./index.php');
 }
-?>
 
-<?php require './elements/header.php'; ?>
+require './elements/header.php';
+?>
 
 <h1>Here your ToDo List!</h1>
 
@@ -31,7 +40,7 @@ if (isset($_POST['todo'])) {
 <?php endif ?>
 
 <div class="profile-container">
-    <img class="profile-picture" src="./assets/img/profile_picture.jpg" alt="Profile Picture">
+    <img class="profile-picture" src="<?= $profilePicture ?>" alt="Profile Picture">
     <div class="profile-settings-container" style="display: none;">
         <a href="./setting/index.php"><img src="./assets/img/icon_settings.svg" alt="Settings Button"></a>
         <a href="./logout/index.php"><img src="./assets/img/icon_logout.svg" alt="Logout Button"></a>
