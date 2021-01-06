@@ -27,7 +27,7 @@ if (isset($_FILES['profile-picture'])) {
             if (in_array($fileExt, $validExt)) {
                 $tmpName = $_FILES['profile-picture']['tmp_name'];
                 $uniqueName = md5(uniqid(rand(), true));
-                $fileName = '../_data/_img' . $uniqueName . $fileExt;
+                $fileName = '../_data/_img/' . $uniqueName . $fileExt;
                 $result = move_uploaded_file($tmpName, $fileName);
 
                 if ($result) {
