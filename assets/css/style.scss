@@ -5,9 +5,8 @@ $text-color: white;
 $primary-font: "Montserrat";
 
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    font-family: $primary-font;
 
     /*&::-webkit-scrollbar {
         width: 5px;
@@ -22,11 +21,12 @@ $primary-font: "Montserrat";
 body {
     background-color: $background-color;
     color: $text-color;
-    font-family: $primary-font;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    margin: 0;
+    padding: 0;
 
     h1 {
         text-align: center;
@@ -253,6 +253,10 @@ body {
 
     /*========== TODO ==========*/
     .todo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         .todo-form-container {
             margin: 25px 0;
 
@@ -262,13 +266,11 @@ body {
                 align-items: center;
 
                 input {
-                    border-width: 3px;
-                    border: #ffffff solid;
+                    border: 3px#ffffff solid;
                     border-radius: 16px;
                     height: 50px;
                     width: 400px;
                     outline: none;
-                    box-shadow: 0 0 8px #ffffff;
                     font-size: 1rem;
                     font-weight: 600;
                     padding: 0 20px;
@@ -290,6 +292,34 @@ body {
 
                     &:hover {
                         transform: scale(1.1);
+                    }
+                }
+            }
+        }
+        
+        .filter-nav {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0 50px;
+            margin: 25px;
+            li {
+                list-style: none;
+                button {
+                    background: none;
+                    border: none;
+                    outline: none;
+                    color: $text-color;
+                    padding: 5px 25px;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    border-radius: 8px;
+                    transition: 0.3s ease;
+                    cursor: pointer;
+
+                    &:hover, &.active {
+                        background: white;
+                        color: $background-color;
                     }
                 }
             }

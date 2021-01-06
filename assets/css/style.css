@@ -1,9 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap");
 * {
-  margin: 0;
-  padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Montserrat";
   /*&::-webkit-scrollbar {
         width: 5px;
         background-color: $background-color;
@@ -17,7 +16,6 @@
 body {
   background-color: #171717;
   color: white;
-  font-family: "Montserrat";
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,6 +29,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin: 0;
+  padding: 0;
   /*========== LOGIN ==========*/
   /*========== SETTINGS ==========*/
   /*========== PROFILE DROPDOWN MENU ==========*/
@@ -321,6 +321,19 @@ body .shape.shape-top-left {
   left: 0;
 }
 
+body .todo-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 body .todo-container .todo-form-container {
   margin: 25px 0;
 }
@@ -338,14 +351,11 @@ body .todo-container .todo-form-container .todo-form-subcontainer {
 }
 
 body .todo-container .todo-form-container .todo-form-subcontainer input {
-  border-width: 3px;
-  border: #ffffff solid;
+  border: 3px #ffffff solid;
   border-radius: 16px;
   height: 50px;
   width: 400px;
   outline: none;
-  -webkit-box-shadow: 0 0 8px #ffffff;
-          box-shadow: 0 0 8px #ffffff;
   font-size: 1rem;
   font-weight: 600;
   padding: 0 20px;
@@ -370,6 +380,41 @@ body .todo-container .todo-form-container .todo-form-subcontainer button {
 body .todo-container .todo-form-container .todo-form-subcontainer button:hover {
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+}
+
+body .todo-container .filter-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 0 50px;
+  margin: 25px;
+}
+
+body .todo-container .filter-nav li {
+  list-style: none;
+}
+
+body .todo-container .filter-nav li button {
+  background: none;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 5px 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+body .todo-container .filter-nav li button:hover, body .todo-container .filter-nav li button.active {
+  background: white;
+  color: #171717;
 }
 
 body .todo-container .todo-list-container .todo {

@@ -20,7 +20,7 @@ class Todo
             $todoTitle = $todo->title;
             $todoStatus = $todo->status;
             $time = $todo->created_at;
-            require './functions/todo.php';
+            require './elements/todo.php';
         }
     }
 
