@@ -6,9 +6,10 @@ $user = new User();
 $userData = $user->getUserData();
 $auth = new Auth();
 if (!$auth->is_connected()) {
-    header('Location: ../login/index.php');
+    header('Location: ../login');
 }
 
+$success = null;
 $error = null;
 $fileName = null;
 $profilePicture = '../assets/img/base_profile_picture.png';
@@ -33,11 +34,10 @@ if (isset($_FILES['profile-picture'])) {
                 if ($result) {
                     $saved = $user->savePicturePath($uniqueName . $fileExt);
                     if($saved) {
-                        $error = 'Profile picture was successfuly uploaded!';
+                        $success = 'Profile picture was successfuly uploaded!';
                     } else {
                         $error = 'Error during picture path database save!';
                     }
-                    
                 }
             } else {
                 $error = 'File is not an image!';
@@ -50,7 +50,7 @@ if (isset($_FILES['profile-picture'])) {
     }
 }
 
-if ($fileName) {
+if ($success) {
     $profilePicture = $fileName;
 } else if ($userData->profile_path && file_exists('../_data/_img/' . $userData->profile_path)) {
     $profilePicture = '../_data/_img/' . $userData->profile_path;
@@ -69,6 +69,9 @@ require '../elements/header.php';
 
         <form action="" method="post" enctype="multipart/form-data">
             <label>Change your profile picture</label>
+            <?php if ($success) : ?>
+                <span><?= $success ?></span>
+            <?php endif ?>
             <?php if ($error) : ?>
                 <span><?= $error ?></span>
             <?php endif ?>

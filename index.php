@@ -5,15 +5,15 @@ require_once './Class/Todo.php';
 require_once './Class/Auth.php';
 require_once './Class/User.php';
 
+$auth = new Auth();
+if (!$auth->is_connected()) {
+    header('Location: ./login');
+}
+
 $user = new User();
 $userData = $user->getUserData();
 if ($userData->profile_path && file_exists('./_data/_img/' . $userData->profile_path)) {
     $profilePicture = './_data/_img/' . $userData->profile_path;
-}
-
-$auth = new Auth();
-if (!$auth->is_connected()) {
-    header('Location: ./login/index.php');
 }
 
 $todo = new Todo();
@@ -42,8 +42,8 @@ require './elements/header.php';
 <div class="profile-container">
     <img class="profile-picture" src="<?= $profilePicture ?>" alt="Profile Picture">
     <div class="profile-settings-container" style="display: none;">
-        <a href="./setting/index.php"><img src="./assets/img/icon_settings.svg" alt="Settings Button"></a>
-        <a href="./logout/index.php"><img src="./assets/img/icon_logout.svg" alt="Logout Button"></a>
+        <a href="./setting"><img src="./assets/img/icon_settings.svg" alt="Settings Button"></a>
+        <a href="./logout"><img src="./assets/img/icon_logout.svg" alt="Logout Button"></a>
     </div>
 </div>
 

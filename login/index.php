@@ -12,7 +12,7 @@ if ($auth->is_connected()) {
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
     $login = $auth->login($_POST['email'], $_POST['password']);
     if ($login) {
-        header('Location: ../index.php');
+        header('Location: ../');
         exit();
     } else {
         $error = 'Error : Invalid password or email!';
@@ -42,7 +42,7 @@ require '../elements/header.php';
         <button type="submit">Log in</button>
     </div>
     <div class="form-submit-container">
-        <a href="../signup/index.php">Sign Up</a>
+        <a href="../signup">Sign Up</a>
     </div>
 </form>
 
