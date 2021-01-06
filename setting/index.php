@@ -31,8 +31,8 @@ if (isset($_FILES['profile-picture'])) {
                 $result = move_uploaded_file($tmpName, $fileName);
 
                 if ($result) {
-                    $oui = $user->savePicturePath($fileName);
-                    if($oui) {
+                    $saved = $user->savePicturePath($uniqueName . $fileExt);
+                    if($saved) {
                         $error = 'Profile picture was successfuly uploaded!';
                     } else {
                         $error = 'Error during picture path database save!';
@@ -52,8 +52,8 @@ if (isset($_FILES['profile-picture'])) {
 
 if ($fileName) {
     $profilePicture = $fileName;
-} else if ($userData->profile_path && file_exists($userData->profile_path)) {
-    $profilePicture = $userData->profile_path;
+} else if ($userData->profile_path && file_exists('../_data/_img/' . $userData->profile_path)) {
+    $profilePicture = '../_data/_img/' . $userData->profile_path;
 }
 
 require '../elements/header.php';

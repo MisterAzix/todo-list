@@ -7,8 +7,8 @@ require_once './Class/User.php';
 
 $user = new User();
 $userData = $user->getUserData();
-if ($userData->profile_path && file_exists($userData->profile_path)) {
-    $profilePicture = $userData->profile_path;
+if ($userData->profile_path && file_exists('./_data/_img/' . $userData->profile_path)) {
+    $profilePicture = './_data/_img/' . $userData->profile_path;
 }
 
 $auth = new Auth();
