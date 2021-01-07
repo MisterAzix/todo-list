@@ -24,6 +24,11 @@ class Todo
         }
     }
 
+    public function getTodoCount()
+    {
+        return count($this->readTodo());
+    }
+
     public function switchTodoStatus(int $todoID)
     {
         $pdo = new PDO('sqlite:' . $this->file);

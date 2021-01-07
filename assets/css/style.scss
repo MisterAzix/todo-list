@@ -8,18 +8,18 @@ $primary-font: "Montserrat";
     box-sizing: border-box;
     font-family: $primary-font;
 
-    /*&::-webkit-scrollbar {
-        width: 5px;
+    &::-webkit-scrollbar {
+        width: 10px;
         background-color: $background-color;
     }
 
     &::-webkit-scrollbar-thumb {
         background-color: white;
-    }*/
+    }
 }
 
 body {
-    background-color: $background-color;
+    background: radial-gradient(circle at top right, #171717, #181818, #1a1a1a, #1b1b1b, #1d1d1d);
     color: $text-color;
     display: flex;
     flex-direction: column;
@@ -251,6 +251,19 @@ body {
         }
     }
 
+    /*========== TODO COUNTER ==========*/
+    #todo-counter {
+        position: fixed;
+        top: 40px;
+        left: 20px;
+        width: 400px;
+        font-weight: bold;
+        font-size: 6rem;
+        transform: rotateZ(-6.2deg);
+        text-align: center;
+        opacity: 0.25;
+    }
+
     /*========== TODO ==========*/
     .todo-container {
         display: flex;
@@ -296,13 +309,13 @@ body {
                 }
             }
         }
-        
+
         .filter-nav {
             display: flex;
             justify-content: space-between;
             width: 100%;
             padding: 0 50px;
-            margin: 25px;
+            margin: 10px;
             li {
                 list-style: none;
                 button {
@@ -317,7 +330,8 @@ body {
                     transition: 0.3s ease;
                     cursor: pointer;
 
-                    &:hover, &.active {
+                    &:hover,
+                    &.active {
                         background: white;
                         color: $background-color;
                     }

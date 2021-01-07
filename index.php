@@ -31,6 +31,8 @@ if (isset($_POST['todo'])) {
 }
 
 require './elements/header.php';
+
+$todoCounter = $todo->getTodoCount();
 ?>
 
 <h1>Here your ToDo List!</h1>
@@ -47,11 +49,13 @@ require './elements/header.php';
     </div>
 </div>
 
+<span id="todo-counter" data-counter=<?= $todoCounter?:'0'?>>0/100</span>
+
 <div class="todo-container">
     <form action="" method="POST" class="todo-form-container">
         <div class="todo-form-subcontainer">
             <input id="todo" type="text" name="todo" placeholder="Eat some bread!" required>
-            <button type="submit">Add</button>
+            <button id="todo-add" type="submit">Add</button>
         </div>
     </form>
 
