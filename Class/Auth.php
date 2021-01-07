@@ -3,10 +3,12 @@
 class Auth
 {
     private $file;
+    private $pdo;
 
     public function __construct()
     {
         $this->file = dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . '_data' . DIRECTORY_SEPARATOR . 'todos.db';
+        $this->pdo = new PDO('sqlite:' . $this->file);
     }
 
     public function is_connected(): bool
@@ -27,9 +29,8 @@ class Auth
 
     public function signup(string $username, string $email, string $password): bool
     {
-        $pdo = new PDO('sqlite:' . $this->file);
         try {
-            $query = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
+            $query = $this->pdo->prepare("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)");
             $query->execute([
                 'username' => $username,
                 'email' => $email,
@@ -46,8 +47,7 @@ class Auth
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-        $pdo = new PDO('sqlite:' . $this->file);
-        $query = $pdo->prepare("SELECT id, password FROM users WHERE email=:email");
+        $query = $this->pdo->prepare("SELECT id, password FROM users WHERE email=:email");
         $query->execute([
             'email' => $email
         ]);
