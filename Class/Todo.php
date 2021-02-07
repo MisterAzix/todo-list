@@ -13,9 +13,24 @@ class Todo
         $this->pdo = new PDO('sqlite:' . $this->file);
     }
 
-    public function displayTodo()
+    public function displayTodo(int $filter = -1)
     {
         $todos = $this->readTodo();
+        switch ($filter) {
+            case 0:
+                $todos = array_filter($todos, function ($todo) {
+                    return $todo->status == '0';
+                });
+                break;
+            case 1:
+                $todos = array_filter($todos, function ($todo) {
+                    return $todo->status == '1';
+                });
+                break;
+            default:
+                break;
+        }
+
 
         foreach ($todos as $todo) {
             $key = $todo->id;
@@ -66,7 +81,7 @@ class Todo
     private function readTodo(int $limit = 0)
     {
         $userID = $this->auth->get_connected_id();
-        $query = ($limit > 0) ?$this->pdo->query("SELECT * FROM todos WHERE user_id=$userID LIMIT=$limit ORDER BY id DESC") : $this->pdo->query("SELECT * FROM todos WHERE user_id=$userID ORDER BY id DESC");
+        $query = ($limit > 0) ? $this->pdo->query("SELECT * FROM todos WHERE user_id=$userID LIMIT=$limit ORDER BY id DESC") : $this->pdo->query("SELECT * FROM todos WHERE user_id=$userID ORDER BY id DESC");
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
 

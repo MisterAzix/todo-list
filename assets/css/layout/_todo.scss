@@ -45,12 +45,15 @@
 
     .filter-nav {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         width: 100%;
         padding: 0 50px;
         margin: 10px;
+
         li {
             list-style: none;
+            margin: 0 10px;
+            
             button {
                 background: none;
                 border: none;

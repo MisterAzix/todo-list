@@ -399,9 +399,9 @@ body #todo-counter {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
   padding: 0 50px;
   margin: 10px;
@@ -409,6 +409,7 @@ body #todo-counter {
 
 .todo-container .filter-nav li {
   list-style: none;
+  margin: 0 10px;
 }
 
 .todo-container .filter-nav li button {

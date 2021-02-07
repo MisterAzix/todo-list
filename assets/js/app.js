@@ -1,4 +1,12 @@
 (function ($) {
+    $('.filter-nav').on('click', 'button', function (e) {
+        e.preventDefault();
+        let $button = $(this);
+        let $buttons = $('.filter-nav').find('button')
+        $buttons.removeClass('active');
+        $button.toggleClass('active');
+    });
+
     $('.todo-list-container').on('submit', '.todo-status', function (e) {
         e.preventDefault();
         let $form = $(this);
