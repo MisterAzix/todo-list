@@ -11,13 +11,13 @@ class User
         require_once 'Auth.php';
         $this->file = dirname(__FILE__, 2) . DIRECTORY_SEPARATOR . '_data' . DIRECTORY_SEPARATOR . 'todos.db';
         $this->auth = new Auth();
-        $this->pdo = new PDO('sqlite:' . $this->file);
     }
 
     public function getUserData()
     {
         $userID = $this->auth->get_connected_id();
-        $query = $this->pdo->query("SELECT * FROM users WHERE id=$userID");
+        $pdo = new PDO('sqlite:' . $this->file);
+        $query = $pdo->query("SELECT * FROM users WHERE id=$userID");
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
