@@ -1,0 +1,36 @@
+.profile-container {
+    position: fixed;
+    top: 32px;
+    right: 64px;
+
+    .profile-picture {
+        height: 64px;
+        width: 64px;
+        border-radius: 50%;
+        border: 2px solid #ffffff;
+        box-shadow: 0 0 8px #ffffff;
+        cursor: pointer;
+        transition: 0.3s ease;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
+    .profile-settings-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            height: 32px;
+            width: 32px;
+            margin-top: 24px;
+            transition: 0.3s ease;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    }
+}

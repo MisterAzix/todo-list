@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+    font-family: $primary-font;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        background-color: $background-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: white;
+    }
+}

@@ -1,0 +1,171 @@
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .todo-form-container {
+        margin: 25px 0;
+
+        .todo-form-subcontainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            input {
+                border: 3px#ffffff solid;
+                border-radius: 16px;
+                height: 50px;
+                width: 400px;
+                outline: none;
+                font-size: 1rem;
+                font-weight: 600;
+                padding: 0 20px;
+            }
+
+            button {
+                background: $text-color;
+                color: $background-color;
+                font-size: 1rem;
+                font-weight: 600;
+                height: 50px;
+                width: 100px;
+                border-radius: 8px;
+                border: none;
+                outline: none;
+                transition: 0.3s ease;
+                cursor: pointer;
+                margin-left: 25px;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+
+    .filter-nav {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 50px;
+        margin: 10px;
+        li {
+            list-style: none;
+            button {
+                background: none;
+                border: none;
+                outline: none;
+                color: $text-color;
+                padding: 5px 25px;
+                font-size: 1rem;
+                font-weight: bold;
+                border-radius: 8px;
+                transition: 0.3s ease;
+                cursor: pointer;
+
+                &:hover,
+                &.active {
+                    background: white;
+                    color: $background-color;
+                }
+            }
+        }
+    }
+
+    .todo-list-container {
+        .todo {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: none;
+            border-width: 3px;
+            border: #ffffff solid;
+            border-radius: 16px;
+            height: 50px;
+            width: 700px;
+            color: $text-color;
+            outline: none;
+            box-shadow: 0 0 8px #ffffff;
+            margin: 50px 20px;
+
+            &.todo-checked {
+                opacity: 0.5;
+            }
+
+            span {
+                position: absolute;
+                top: -25px;
+                left: 20px;
+                font-size: 0.8rem;
+                opacity: 0.5;
+            }
+
+            .todo-title {
+                width: 500px;
+                padding: 0 20px;
+                font-size: 1rem;
+                font-weight: 600;
+            }
+
+            .todo-status {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100px;
+                height: 100%;
+                border-width: 3px;
+                border-right: white solid;
+                border-left: white solid;
+                box-shadow: 0 0 8px #ffffff;
+
+                button {
+                    background: none;
+                    outline: none;
+                    position: relative;
+                    border-radius: 8px;
+                    border-width: 3px;
+                    border: #ffffff solid;
+                    box-shadow: 0 0 8px #ffffff;
+                    height: 28px;
+                    width: 28px;
+                    cursor: pointer;
+                    /*transition: 0.3s ease;*/
+
+                    /*&:hover {
+                        transform: scale(1.1);
+                    }*/
+
+                    img {
+                        position: absolute;
+                        width: 32px;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+
+                        &.hidden {
+                            display: none;
+                        }
+                    }
+                }
+            }
+
+            .todo-delete {
+                display: flex;
+                justify-content: center;
+                width: 100px;
+
+                button {
+                    background: none;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    transition: 0.3s ease;
+
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+}

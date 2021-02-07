@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+    font-family: $primary-font;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        background-color: $background-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: white;
+    }
+}
+
+body {
+    background: radial-gradient(circle at top right, #171717, #181818, #1a1a1a, #1b1b1b, #1d1d1d);
+    color: $text-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    h1 {
+        text-align: center;
+        margin: 50px 0;
+    }
+
+    /*========== SHAPE ==========*/
+    .shape {
+        position: fixed;
+        filter: drop-shadow(0 0 8px #ffffff);
+
+        &.shape-bottom-right {
+            bottom: 0;
+            right: 0;
+        }
+
+        &.shape-top-left {
+            top: 0;
+            left: 0;
+        }
+    }
+
+    /*========== TODO COUNTER ==========*/
+    #todo-counter {
+        position: fixed;
+        top: 40px;
+        left: 20px;
+        width: 400px;
+        font-weight: bold;
+        font-size: 6rem;
+        transform: rotateZ(-6.2deg);
+        text-align: center;
+        opacity: 0.25;
+    }
+}

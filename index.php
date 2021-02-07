@@ -62,8 +62,8 @@ $todoCounter = $todo->getTodoCount();
     <ul class="filter-nav">
         <li><button id="filter-all">All</button></li>
         <li><button id="filter-todo" class="active">Todo</button></li>
-        <li><button id="filter-priority">Priority</button></li>
-        <li><button id="filter-important">Important</button></li>
+        <!-- <li><button id="filter-priority">Priority</button></li> -->
+        <!-- <li><button id="filter-important">Important</button></li> -->
         <li><button id="filter-finished">Finished</button></li>
     </ul>
 
